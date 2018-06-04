@@ -1,0 +1,1178 @@
+{
+	"info": {
+		"_postman_id": "4ab2513b-50b8-4e2d-870c-d7acfcc35756",
+		"name": "Photo Archiver",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "client",
+			"description": "",
+			"item": [
+				{
+					"name": "Get developer client id and client secret.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client"
+							]
+						},
+						"description": "As a developer, if anyone wants to use these API, the developer must need a Client Id and Client Secret. Here's the API to get one."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photographer CRUD",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all the photographers lists.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "V6hwYZOJ3WGzjfjqdr8U"
+							},
+							{
+								"key": "clientSecret",
+								"value": "GSJ3QRQX2AgAAUTySLJRLwRr08XWbloo0IxfUTYFUNn2pwZSHYQe6qIxyYXFj29smFgBd2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/photographer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photographer"
+							]
+						},
+						"description": "To get all the photographers list. \nN.B. If the client Id and secre is passed through the headers, It have to be lowercase key."
+					},
+					"response": []
+				},
+				{
+					"name": "Creating a photographer or account.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"photographer@mail.com\",\n\t\"password\": \"photographerPassword\",\n\t\"name\": \"Photographer Name\",\n\t\"isPremium\": false,\n\t\"netBalance\": 0\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/photographer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photographer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get individual photographer information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0NzczOTI1LCJleHAiOjE1MjQ3Nzc1MjV9.F7f_Kggu_KELluHnOsC_9qLjk-6ClhgA3uTxdZJPqyQ\n",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"photographere@email.com\",\n\t\"password\": \"photographerPassword\",\n\t\"name\": \"Photographer Name\",\n\t\"isPremium\": false,\n\t\"netBalance\": 0,\n\t\"country\": \"Bangladesh\",\n\t\"city\": \"Rajshahi\",\n\t\"contactNumber\": \"1234567890\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/photographer/{photographerId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photographer",
+								"{photographerId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the photographer information",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0NzczOTI1LCJleHAiOjE1MjQ3Nzc1MjV9.F7f_Kggu_KELluHnOsC_9qLjk-6ClhgA3uTxdZJPqyQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"photographer@mail.com\",\n\t\"password\": \"photographerPassword\",\n\t\"name\": \"Photographer Name updated\",\n\t\"isPremium\": false,\n\t\"netBalance\": 0,\n\t\"country\": \"Bangladesh\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/photographer/{photographerId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photographer",
+								"{photographerId}"
+							]
+						},
+						"description": "To update a photographer information, admin or photographer previlage is required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the photographers account.",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0ODQ1ODY5LCJleHAiOjE1MjQ4NDk0Njl9.6RZJVwGagBKBUkNxdckoAWWyZOjVcMvszk19aL0fqP8"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/photographer/{photographerId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photographer",
+								"{photographerId}"
+							]
+						},
+						"description": "Admin previlage is require for this deletion."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"description": "",
+			"item": [
+				{
+					"name": "Photographer Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"photographere@email.com\",\n\t\"password\": \"photographerPassword\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "In successful request a token will be retrieved, which will be required for further photographer authenticated resources."
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@email.com\",\n\t\"password\": \"adminPassword\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin CRUD",
+			"description": "",
+			"item": [
+				{
+					"name": "Creating an admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@email.com\",\n\t\"password\": \"adminPassword\",\n\t\"name\": \"Admin Name\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin"
+							]
+						},
+						"description": "In future this route will require supre admin previlages."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category CRUD",
+			"description": null,
+			"item": [
+				{
+					"name": "Get all the categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/category",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category"
+							]
+						},
+						"description": "To get all the categories information. No Authentication is requireed."
+					},
+					"response": []
+				},
+				{
+					"name": "Creating a category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0ODQ1ODY5LCJleHAiOjE1MjQ4NDk0Njl9.6RZJVwGagBKBUkNxdckoAWWyZOjVcMvszk19aL0fqP8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"My Category title\",\n\t\"description\": \"My category description\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/category",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category"
+							]
+						},
+						"description": "To create a category, Admin authenticatis is required. "
+					},
+					"response": []
+				},
+				{
+					"name": "Get a specific category information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/category/{categoryId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category",
+								"{categoryId}"
+							]
+						},
+						"description": "To get an individual photographer information."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a category",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0ODQ1ODY5LCJleHAiOjE1MjQ4NDk0Njl9.6RZJVwGagBKBUkNxdckoAWWyZOjVcMvszk19aL0fqP8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"updated category title\",\n\t\"description\": \"updated category description\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/category/{categoryId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category",
+								"{categoryId}"
+							]
+						},
+						"description": "To update a category information. Admin previlage required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0ODQ1ODY5LCJleHAiOjE1MjQ4NDk0Njl9.6RZJVwGagBKBUkNxdckoAWWyZOjVcMvszk19aL0fqP8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/category/5ae34d56975b5f493ea70d7d",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category",
+								"5ae34d56975b5f493ea70d7d"
+							]
+						},
+						"description": "To delete the category information."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message CRUD",
+			"description": null,
+			"item": [
+				{
+					"name": "Get all the messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0OTQwOTk0LCJleHAiOjE1MjQ5NDQ1OTR9.EAnRiuRHR-LDbnPgR8seOJbYbqYco_AX5yA_4Nmvu6U"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/message",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"message"
+							]
+						},
+						"description": "To get all the messages. Admin Authentication is requireed."
+					},
+					"response": []
+				},
+				{
+					"name": "Creating a message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0ODQ1ODY5LCJleHAiOjE1MjQ4NDk0Njl9.6RZJVwGagBKBUkNxdckoAWWyZOjVcMvszk19aL0fqP8",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My message title\",\n    \"description\": \"My message description\",\n    \"userId\": \"5adf260cf70f527a27b96a50\",\n    \"senderName\": \"message sender name\",\n    \"senderPhoneNumber\": \"message sender photo number\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/message",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"message"
+							]
+						},
+						"description": "To create a message, No authenticatis is required."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a specific message information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0OTQxNzIzLCJleHAiOjE1MjQ5NDUzMjN9.JhdAhyYMxaPth-afSMh7bQJ3TUFW6xcHflyLVz9aByk"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/message/{messageId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"message",
+								"{messageId}"
+							]
+						},
+						"description": "To get an individual message information."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a message",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0OTQxOTA1LCJleHAiOjE1MjQ5NDU1MDV9.fB09KfKjZ0mFyUIDjkPC1plH6wC2AOxsC-rc0mU-JLE"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"updated message title\",\n    \"description\": \"My message description\",\n    \"userId\": \"5adf260cf70f527a27b96a50\",\n    \"senderName\": \"message sender name\",\n    \"senderPhoneNumber\": \"message sender photo number\",\n    \"isRead\": true\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/message/{messageId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"message",
+								"{messageId}"
+							]
+						},
+						"description": "To update a message information. Admin previlage required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a message",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI0OTQxODM2LCJleHAiOjE1MjQ5NDU0MzZ9.NNpAgCe0buW71yRAcSxpM-Cf7vayH_8vf7JixBySrHw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/message/{messageId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"message",
+								"{messageId}"
+							]
+						},
+						"description": "To delete the message information. Photographer authentication required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WishList",
+			"description": null,
+			"item": [
+				{
+					"name": "Get all the photos information of a photographres wishlsits.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlNGJkZmFmZTg1ZTQ0ZTJmYWM1N2I5Iiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDkzOTkzMDg4NyIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjkiLCJlbWFpbCI6InBob3RvZ3JhcGhlckBtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JDV1dWZjZWo3dGM1T0l0MkZuUzI5Uy5YL2UuLm4xWUNZVnoxeEFmY0dvdlo0YXk0TWhNVndLIiwicGhvdG9ncmFwaGVySWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjgiLCJyb2xlIjoiUGhvdG9ncmFwaGVyIiwiX192IjowfSwiJGluaXQiOnRydWUsImlhdCI6MTUyNDk0MzcyMiwiZXhwIjoxNTI0OTQ3MzIyfQ.oYAY6haXhUaF18lcJLdgPGY3YAC80OJLXFzMbgg2qHU"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/wishList/{photographerId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"wishList",
+								"{photographerId}"
+							]
+						},
+						"description": "Provide all the photo details description. Photographer authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a photo information from the photographer wishlsits",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlNGJkZmFmZTg1ZTQ0ZTJmYWM1N2I5Iiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDkzOTkzMDg4NyIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjkiLCJlbWFpbCI6InBob3RvZ3JhcGhlckBtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JDV1dWZjZWo3dGM1T0l0MkZuUzI5Uy5YL2UuLm4xWUNZVnoxeEFmY0dvdlo0YXk0TWhNVndLIiwicGhvdG9ncmFwaGVySWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjgiLCJyb2xlIjoiUGhvdG9ncmFwaGVyIiwiX192IjowfSwiJGluaXQiOnRydWUsImlhdCI6MTUyNDk0MzcyMiwiZXhwIjoxNTI0OTQ3MzIyfQ.oYAY6haXhUaF18lcJLdgPGY3YAC80OJLXFzMbgg2qHU"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/wishList/{photographerId}/{photoId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"wishList",
+								"{photographerId}",
+								"{photoId}"
+							]
+						},
+						"description": "Provide all the photo details description. Photographer authentication required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BuyList",
+			"description": null,
+			"item": [
+				{
+					"name": "Pass photo from wishList to buyList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlNGJkZmFmZTg1ZTQ0ZTJmYWM1N2I5Iiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDkzOTkzMDg4NyIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjkiLCJlbWFpbCI6InBob3RvZ3JhcGhlckBtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JDV1dWZjZWo3dGM1T0l0MkZuUzI5Uy5YL2UuLm4xWUNZVnoxeEFmY0dvdlo0YXk0TWhNVndLIiwicGhvdG9ncmFwaGVySWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjgiLCJyb2xlIjoiUGhvdG9ncmFwaGVyIiwiX192IjowfSwiJGluaXQiOnRydWUsImlhdCI6MTUyNDk0MzcyMiwiZXhwIjoxNTI0OTQ3MzIyfQ.oYAY6haXhUaF18lcJLdgPGY3YAC80OJLXFzMbgg2qHU"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/buyList/{photographerId}/{photoId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"buyList",
+								"{photographerId}",
+								"{photoId}"
+							]
+						},
+						"description": "After purchase a photo, the photo of the photographer will be transferred to the buyList from wishList."
+					},
+					"response": []
+				},
+				{
+					"name": "To all the photo information of buyList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlNGJkZmFmZTg1ZTQ0ZTJmYWM1N2I5Iiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDkzOTkzMDg4NyIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjkiLCJlbWFpbCI6InBob3RvZ3JhcGhlckBtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA1JDV1dWZjZWo3dGM1T0l0MkZuUzI5Uy5YL2UuLm4xWUNZVnoxeEFmY0dvdlo0YXk0TWhNVndLIiwicGhvdG9ncmFwaGVySWQiOiI1YWU0YmRmYWZlODVlNDRlMmZhYzU3YjgiLCJyb2xlIjoiUGhvdG9ncmFwaGVyIiwiX192IjowfSwiJGluaXQiOnRydWUsImlhdCI6MTUyNDk0MzcyMiwiZXhwIjoxNTI0OTQ3MzIyfQ.oYAY6haXhUaF18lcJLdgPGY3YAC80OJLXFzMbgg2qHU"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/buyList/{photographerId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"buyList",
+								"{photographerId}"
+							]
+						},
+						"description": "Provide all the photo details description of buyList. Photographer authentication required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo",
+			"description": "Here the basic crud operation of photo will happen.",
+			"item": [
+				{
+					"name": "Get all the photos of the storage.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI1MDAwMjc5LCJleHAiOjE1MjUwMDM4Nzl9.lSraMfnfljm5F9EKa5YeFtcmc27oge2SGbzY9u0tFBQ"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/photo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photo"
+							]
+						},
+						"description": "Reeturn all the photos information. Admin previllages required."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/photo/upload/{albumId}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI1MDAwNDYzLCJleHAiOjE1MjUwMDQwNjN9.2cRNeUH90gCz8sc_qTaHIDa23N7qzHvzlxyD2S2debU"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "myPhotoName",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/photo/upload/{albumId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photo",
+								"upload",
+								"{albumId}"
+							]
+						},
+						"description": "Create a photo under an album. Photographer authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/photo/{photoId}",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI1MDAwNDYzLCJleHAiOjE1MjUwMDQwNjN9.2cRNeUH90gCz8sc_qTaHIDa23N7qzHvzlxyD2S2debU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"displayName\": \"update name.png\",\n    \"name\": \"1524999602551.Screenshot from 2018-04-28 01-23-17.png\",\n    \"originalPath\": \"/uploads/original/1524999602551.Screenshot from 2018-04-28 01-23-17.png\",\n    \"watermarkedPath\": \"/uploads/watermarked/1524999602551.Screenshot from 2018-04-28 01-23-17.png\",\n    \"views\": 0,\n    \"upVote\": 0,\n    \"upVoterList\": [],\n    \"uploadDate\": \"2018-04-29T11:00:02.541Z\",\n    \"tags\": [],\n    \"albumId\": \"5adf29ba79e82d7fdbe0b1d3\",\n    \"ownerId\": \"5adf260cf70f527a27b96a50\",\n    \"category\": \"5adf29ae79e82d7fdbe0b1d2\",\n    \"likes\": 0,\n    \"price\": 100,\n    \"_id\": \"5ae5a5b2d0ad135f04d2aeca\",\n    \"__v\": 0\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/photo/{photoId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photo",
+								"{photoId}"
+							]
+						},
+						"description": "Update a photo. Photographer authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/photo/private/{photoId}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI1MDAwNDYzLCJleHAiOjE1MjUwMDQwNjN9.2cRNeUH90gCz8sc_qTaHIDa23N7qzHvzlxyD2S2debU"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "myPhotoName",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/photo/private/5ae5a5b2d0ad135f04d2aeca",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photo",
+								"private",
+								"5ae5a5b2d0ad135f04d2aeca"
+							]
+						},
+						"description": "Get the public album photo. Require Photographre authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/photo/public/{photoId}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjJhNjVlZGIyM2UyMTA1Yzg4YmMyIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwicGhvdG9ncmFwaGVySWQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsiaWdub3JlIjp7fSwiZGVmYXVsdCI6e30sImluaXQiOnsiX2lkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInBob3RvZ3JhcGhlcklkIjp0cnVlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwicm9sZSI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzQWRtaW4iOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNSZWNydWl0ZXIiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJlbWl0dGVyIjp7ImRvbWFpbiI6bnVsbCwiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp0cnVlfSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImNyZWF0ZWREYXRlIjoiMTUyNDc3MDkyNzczNSIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6dHJ1ZSwiaXNSZWNydWl0ZXIiOmZhbHNlLCJfaWQiOiI1YWUyMmE2NWVkYjIzZTIxMDVjODhiYzIiLCJlbWFpbCI6InBob3RvZ3JhcGhlcmVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVXR1NnhadzliSDVrLmFKZmxiLkl3dTB0LnU1ZVllQi9yNS40TzFFV09weC9vekYuQm80cEciLCJwaG90b2dyYXBoZXJJZCI6IjVhZTIyYTY1ZWRiMjNlMjEwNWM4OGJjMSIsInJvbGUiOiJQaG90b2dyYXBoZXIiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI1MDAwNDYzLCJleHAiOjE1MjUwMDQwNjN9.2cRNeUH90gCz8sc_qTaHIDa23N7qzHvzlxyD2S2debU",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "myPhotoName",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/photo/public/5ae5a5b2d0ad135f04d2aeca",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photo",
+								"public",
+								"5ae5a5b2d0ad135f04d2aeca"
+							]
+						},
+						"description": "Get the photo information of public album."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/photo/{photoId}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "clientid",
+								"value": "ozqt1HMv6nq3rxINXyZ"
+							},
+							{
+								"key": "clientsecret",
+								"value": "KcgMTwbIDorU84ueWf1dQEcAhXDCECLOPWg5kbQu7f0QJZEGh3XUwJBrI4v62q8CAWOgfr"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJjcmVhdGVkRGF0ZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJpc0FkbWluIjoiaW5pdCIsImlzU3VwZXJBZG1pbiI6ImluaXQiLCJpc1Bob3RvZ3JhcGhlciI6ImluaXQiLCJpc1JlY3J1aXRlciI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiYWRtaW5JZCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6dHJ1ZSwiYWRtaW5JZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOnRydWUsImlzU3VwZXJBZG1pbiI6dHJ1ZSwiaXNQaG90b2dyYXBoZXIiOnRydWUsImlzUmVjcnVpdGVyIjp0cnVlLCJfX3YiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0IiwiaWdub3JlIl19LCJwYXRoc1RvU2NvcGVzIjp7fSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6dHJ1ZX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJjcmVhdGVkRGF0ZSI6IjE1MjQ3Nzc0NjYzNjUiLCJpc0FkbWluIjp0cnVlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpc1Bob3RvZ3JhcGhlciI6ZmFsc2UsImlzUmVjcnVpdGVyIjpmYWxzZSwiX2lkIjoiNWFlMjQyOWFiNGMxYTczZDkzOTkxNzBlIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwNSRlRm85OWJDcHFHQkJuZElOeWFyblZlVzV5MjZyVjVaRGJXSGcxcExDcXltVVZhbGxMN3FIMiIsInJvbGUiOiJBZG1pbiIsImFkbWluSWQiOiI1YWUyNDI5YWI0YzFhNzNkOTM5OTE3MGQiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiaWF0IjoxNTI1MDAwMjc5LCJleHAiOjE1MjUwMDM4Nzl9.lSraMfnfljm5F9EKa5YeFtcmc27oge2SGbzY9u0tFBQ"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/api/photo/{photoId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"photo",
+								"{photoId}"
+							]
+						},
+						"description": "Delete the photo from database. Require photographer Authenttication. "
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	}
+}

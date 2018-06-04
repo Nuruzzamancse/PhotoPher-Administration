@@ -1,0 +1,48 @@
+{
+  "name": "album",
+  "version": "1.0.0",
+  "description": "File management on both front end and back end.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "nodemon": "nodemon server.js",
+    "port-clear": "fuser -n tcp -k 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmshamsnahid/Photopher-api.git"
+  },
+  "author": "B M Shams Nahid <b.m.shamsnahid@gmail.com> (https://medium.com/@bmshamsnahid)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmshamsnahid/Photopher-api/issues"
+  },
+  "homepage": "https://github.com/bmshamsnahid/Photopher-api#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "forever": "^0.15.3",
+    "image-watermark": "0.0.7",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^5.0.3",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.0",
+    "stripe": "^5.5.0",
+    "universal-analytics": "^0.4.16"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "client/*"
+    ]
+  }
+}
