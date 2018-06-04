@@ -124,7 +124,7 @@ let getPhotographerAlbum = (req, res, next) => {
                             if (err) {
                                 console.log('error is: ' + err);
                             } else {
-                                console.log(albumInfo);
+                                console.log('Hello ' + albumInfo);
                                 return res.status(201).json({ success: true, message: 'Successfully get all the Photo Albums.', data: albumInfo });
                             }
                         });

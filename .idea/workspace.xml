@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="288e7229-0004-45c8-a3e0-e734eeb489f1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/photopher-admin-fornt-end/src/app/model/user.ts" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/controller/album.js" afterPath="$PROJECT_DIR$/controller/album.js" />
       <change beforePath="$PROJECT_DIR$/controller/auth.js" afterPath="$PROJECT_DIR$/controller/auth.js" />
       <change beforePath="$PROJECT_DIR$/controller/photo.js" afterPath="$PROJECT_DIR$/controller/photo.js" />
+      <change beforePath="$PROJECT_DIR$/controller/photographer.js" afterPath="$PROJECT_DIR$/controller/photographer.js" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/route/photographer.js" afterPath="$PROJECT_DIR$/route/photographer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/photopher-admin-fornt-end/src/app/components/photos/photos.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+              <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -304,12 +303,12 @@
       <workItem from="1526977229275" duration="173000" />
       <workItem from="1528024429882" duration="21302000" />
       <workItem from="1528063328891" duration="734000" />
-      <workItem from="1528091374467" duration="21399000" />
+      <workItem from="1528091374467" duration="21996000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85548000" />
+    <option name="totallyTimeSpent" value="86145000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -529,13 +528,13 @@
         <state relative-caret-position="102">
           <caret line="85" column="38" lean-forward="false" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
           <folding>
-            <element signature="e#4300#5180#0" expanded="false" />
-            <element signature="e#5231#5719#0" expanded="false" />
-            <element signature="e#5760#9186#0" expanded="false" />
-            <element signature="e#9227#9741#0" expanded="false" />
-            <element signature="e#9786#10326#0" expanded="false" />
-            <element signature="e#10370#11275#0" expanded="false" />
-            <element signature="e#11316#12520#0" expanded="false" />
+            <element signature="e#4303#5183#0" expanded="false" />
+            <element signature="e#5234#5722#0" expanded="false" />
+            <element signature="e#5763#9189#0" expanded="false" />
+            <element signature="e#9230#9744#0" expanded="false" />
+            <element signature="e#9789#10329#0" expanded="false" />
+            <element signature="e#10373#11278#0" expanded="false" />
+            <element signature="e#11319#12523#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -717,7 +716,7 @@
         <state relative-caret-position="221">
           <caret line="73" column="80" lean-forward="false" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -741,7 +740,7 @@
     <entry file="file://$PROJECT_DIR$/photopher-admin-fornt-end/src/app/components/photos/photos.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>

@@ -44,19 +44,19 @@ let userLogin = (req, res, next) => {
 let photographerAuthenticate = (req, res, next) => {
     let token = req.body.token || req.query.token || req.headers['authorization'];
 
+    console.log(token);
+
     if (token) {
         jwt.verify(token, config.secret, (err, decoded) => {
             if (err) {
                 return res.status(401).json({ success: false, message: 'Fatal Server Error: ' + err});
             } else {
                 let user = decoded._doc;
-                console.log(decoded);
-
-                if ((user.role == 'Photographer' && user.isPhotographer == true) ||(user.role == 'Admin' && user.isAdmin == true)) {
+                if ((user.role == 'Photographer' && user.isPhotographer == true) || (user.role == 'Admin' && user.isAdmin == true)){
                     req.decoded = decoded;
                     next();
                 } else {
-                    return res.status(202).json({ success: false, message: 'Invalid credentials 76' });
+                    return res.status(202).json({ success: false, message: 'Invalid credentials' });
                 }
             }
         });
@@ -77,7 +77,6 @@ let adminAuthenticate = (req, res, next) => {
                 return res.status(401).json({ success: false, message: 'Fatal Server Error: ' + err});
             } else {
                 let user = decoded._doc;
-                console.log(decoded);
                 if (user.role == 'Admin' && user.isAdmin == true) {
                     req.decoded = decoded;
                     next();

@@ -9,7 +9,7 @@ let createPhotographer = (req, res, next) => {
         name = req.body.name,
         isPremium = req.body.isPremium,
         netBalance = req.body.netBalance;
-
+    console.log('.................................................................................................');
     if (!email) {
         return res.status(202).json({ success: false, message: 'Invalid or incomplete email.'});
     } else if (!password || password.length < 6) {
@@ -100,6 +100,10 @@ let updatePhotographer = (req, res, next) => {
         isPremium = req.body.isPremium,
         description = req.body.description,
         netBalance = req.body.netBalance;
+
+    console.log('.................................................................................................');
+
+    console.log(req.body);
 
     if (!photographerId) {
         return res.status(202).json({ success: false, message: 'Invalid or incomplete user photographerProfile id.'});

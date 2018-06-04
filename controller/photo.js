@@ -40,7 +40,7 @@ const createPhoto = (req, res, next) => {
                     'dstPath' : './public/uploads/watermarked/' + req.file.filename
                 };
                 // watermark.embedWatermark('./public/uploads/original/' + req.file.filename, options);
-                visitor.event("Photo CRUD", "Photo " + req.file.filename + " watermarked being creted.").send();
+                // visitor.event("Photo CRUD", "Photo " + req.file.filename + " watermarked being creted.").send();
                 Album.findById(albumId, (err, album) => {
                     if (err) {
                         return res.status(500).json({ success: false, message: 'Fatal Server Error: ' + err});
